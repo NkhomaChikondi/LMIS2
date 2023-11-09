@@ -74,6 +74,7 @@ builder.Services.AddSwaggerGen();
 //resolve dependencies 
 builder.Services.AddScoped<IUserRepository, UserRepo>();
 builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
+builder.Services.AddScoped<IRoleRepository,RoleRepo>();
 
 var app = builder.Build();
 

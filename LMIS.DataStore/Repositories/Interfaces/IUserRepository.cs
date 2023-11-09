@@ -34,6 +34,7 @@ namespace LMIS.DataStore.Repositories.Interfaces
 
         Task<IList<string>> GetRolesAsync(string userId);
 
+
         Task<IdentityResult> UpdateAsync(ApplicationUser applicationUser);
 
         Task<int> TotalCount();
