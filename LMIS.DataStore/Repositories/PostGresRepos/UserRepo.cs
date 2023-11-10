@@ -31,9 +31,11 @@ namespace LMIS.DataStore.Repositories.PostGresRepos
             return await this._userManager.AddToRoleAsync(applicationUser, roleName);
         }
 
-        public Task<ApplicationUser> ConfirmAccount(string id, int pin)
+        public async Task<ApplicationUser> ConfirmAccount(string id, int pin)
         {
-            throw new NotImplementedException();
+            var user = await GetSingleUser(id);
+            user.EmailConfirmed = true;
+            return user;
         }
 
         public async Task<IdentityResult> CreateUserAsync(ApplicationUser applicationUser, string password)
