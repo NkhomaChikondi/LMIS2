@@ -25,7 +25,7 @@ namespace LMIS.WEB.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    //person p = new person { name = "Sourav", surname = "Kayal" };
+
                     client.BaseAddress = new Uri(_configuration["Application:ApiEndPoint"]);
                     var response = client.PostAsJsonAsync("api/login", loginmodel).Result;
                     if (response.IsSuccessStatusCode)
@@ -58,7 +58,7 @@ namespace LMIS.WEB.Controllers
                             new Claim(ClaimTypes.NameIdentifier, Convert.ToString(userId)),
                             new Claim(ClaimTypes.Name, Convert.ToString(Username)),
                             new Claim(ClaimTypes.Role, Convert.ToString(roleName)),
-                            new Claim("DMS", "Document Management System")
+                            new Claim("LMIS", "Library Management Information System")
                         };
                             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                             var principal = new ClaimsPrincipal(identity);
@@ -70,33 +70,20 @@ namespace LMIS.WEB.Controllers
 
                             //Login
                         }
-                        if (roleName == "Managing Director")
+                        if (roleName == "Management")
                         {
-                            return Json(new { status = "success", area = "ManagingDirector" }); ;
+                            return Json(new { status = "success", area = "Management" }); ;
                         }
-                        else if (roleName == "Country Lead")
+                        else if (roleName == "Front Office")
                         {
-                            return Json(new { status = "success", area = "CountryLead" }); ;
+                            return Json(new { status = "success", area = "FrontOffice" }); ;
                         }
-                        else if (roleName == "Admin")
+                        else 
                         {
-                            return Json(new { status = "success", area = "Admin" }); ;
+                            return Json(new { status = "success", area = "Back Office" }); ;
                         }
-                        else if (roleName == "Courier")
-                        {
-                            return Json(new { status = "success", area = "Courier" }); ;
-                        }
-                        else
-                        {
-                            return Json(new { status = "success", area = "SalesEngineer" });
-
-                        }
-
-
-                        // return RedirectToAction("Index", "Home", new { Area = "CountryLead" });
-
-                        //return Redirect("http://129.151.153.61/dms/home/");//
-                        // return RedirectToAction("Index", "Home");//193.123.83.250/dms
+                       
+                        
                     }
                     else
                     {
@@ -104,19 +91,17 @@ namespace LMIS.WEB.Controllers
                         string res = await response.Content.ReadAsStringAsync();
                         TempData["error"] = res;
                         return Json(new { status = "failed", message = res });
-                        //return Redirect("http://129.151.153.61/dms/");
-                        //  return RedirectToAction("Index", "Login");
+                        
                     }
                 }
             }
             catch (Exception ex)
             {
-                //TempData["error"] = "We could not connect you to the website. Contact the admin";
-                //return RedirectToAction("Index", "Login");
+
                 TempData["error"] = "We could not connect you to the website. Contact the admin or try again later" + ex;
                 // return RedirectToAction("Index", "Home");
                 return Json(new { status = "failed", message = ex });
-                //return Redirect("http://129.151.153.61/dms/");
+               
             }
 
         }
