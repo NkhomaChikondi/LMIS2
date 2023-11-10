@@ -23,5 +23,18 @@ namespace LMIS.DataStore.Core.DTOs.User
         [StringLength(maximumLength: 255)]
         public string Location { get; set; }
 
+        [EmailAddress]
+        public string Email { get; set; }
+
+        public int Pin { get; set; }
+        [Required]
+        public string Password { get; set; }
+
+        [Required]
+        [Display(Name = "Role")]
+        public string RoleName { get; set; }
+
+
+
     }
 }

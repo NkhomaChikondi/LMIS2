@@ -191,7 +191,11 @@ namespace LMIS.DataStore.Repositories.PostGresRepos
 
         public int RandomNumber()
         {
-            throw new NotImplementedException();
+            // generating a random number
+            Random generator = new Random();
+            int number = generator.Next(100000, 999999);
+
+            return number;
         }
 
         public void Remove(ApplicationUser applicationUser)

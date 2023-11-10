@@ -1,4 +1,7 @@
+using LMIS.DataStore.Core.Middleware;
 using LMIS.DataStore.Core.Models;
+using LMIS.DataStore.Core.Services;
+using LMIS.DataStore.Core.Services.Interfaces;
 using LMIS.DataStore.Data;
 using LMIS.DataStore.Repositories.Interfaces;
 using LMIS.DataStore.Repositories.PostGresRepos;
@@ -63,7 +66,8 @@ options => _ = provider switch
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                    .AddEntityFrameworkStores<ApplicationDbContext>()
                    .AddDefaultTokenProviders();
-
+builder.Services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+builder.Services.AddDistributedRedisCache(r => { r.Configuration = builder.Configuration["redis:connectionString"]; });
 //add automapper to middleware and get all profiles automatically        
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddControllers();
@@ -75,6 +79,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserRepository, UserRepo>();
 builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 builder.Services.AddScoped<IRoleRepository,RoleRepo>();
+builder.Services.AddTransient<TokenManagerMiddleware>();
+builder.Services.AddScoped<ITokenManager, TokenManager>();
+builder.Services.AddScoped<IEmailService,EmailService>();
 
 var app = builder.Build();
 
