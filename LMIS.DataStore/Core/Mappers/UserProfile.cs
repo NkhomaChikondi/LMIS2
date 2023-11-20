@@ -16,8 +16,6 @@ namespace LMIS.DataStore.Core.Mappers
             CreateMap<CreateUserDTO, ApplicationUser>();
             CreateMap<UpdateUserDTO, ApplicationUser>();
             CreateMap<ApplicationUser, ReadUserDTO>();
-
-
         }
     }
 }

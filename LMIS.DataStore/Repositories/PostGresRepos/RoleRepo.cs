@@ -68,7 +68,6 @@ namespace LMIS.DataStore.Repositories.PostGresRepos
             {
                  result = await _roleManager.DeleteAsync(record);
             }
-
             return result;
         }
 

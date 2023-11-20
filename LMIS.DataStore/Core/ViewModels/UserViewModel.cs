@@ -19,10 +19,6 @@ namespace LMIS.DataStore.Core.ViewModels
         public string DataInvalid { get; set; } = "true";
         public string FormattedFirstName => myTI.ToTitleCase(FirstName);
         public string FormattedLastName => myTI.ToTitleCase(LastName);
-        public string FormattedGender => (!string.IsNullOrEmpty(Gender)) ? myTI.ToTitleCase(Gender) : "";
-       
-
-
-      
+        public string FormattedGender => (!string.IsNullOrEmpty(Gender)) ? myTI.ToTitleCase(Gender) : "";   
     }
 }
