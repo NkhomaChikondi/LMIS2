@@ -26,6 +26,7 @@ namespace LMIS.DataStore.Core.Models
         public string Gender { get; set; }
         [StringLength(maximumLength: 255)]
         public string Location { get; set; }
+        public int Pin { get; set; }
 
         [NotMapped]
         public String FullName

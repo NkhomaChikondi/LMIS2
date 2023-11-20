@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMIS.API", "LMIS.API.csproj", "{B3BA1A6D-A8FD-4300-894D-666A003103BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMIS.API", "LMIS.API.csproj", "{B3BA1A6D-A8FD-4300-894D-666A003103BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMIS.DataStore", "..\LMIS.DataStore\LMIS.DataStore.csproj", "{64744157-0E57-446E-9337-8DA65B1E482C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMIS.DataStore", "..\LMIS.DataStore\LMIS.DataStore.csproj", "{64744157-0E57-446E-9337-8DA65B1E482C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMIS.WEB", "..\LMIS.WEB\LMIS.WEB.csproj", "{58068228-27C1-4DB6-9B6D-5AD66D59D7AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{64744157-0E57-446E-9337-8DA65B1E482C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64744157-0E57-446E-9337-8DA65B1E482C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64744157-0E57-446E-9337-8DA65B1E482C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58068228-27C1-4DB6-9B6D-5AD66D59D7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58068228-27C1-4DB6-9B6D-5AD66D59D7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58068228-27C1-4DB6-9B6D-5AD66D59D7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58068228-27C1-4DB6-9B6D-5AD66D59D7AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -29,11 +29,9 @@ namespace LMIS.DataStore.Repositories.PostGresRepos
         public async Task<bool> Exists(string name, int rating = 0)
         {
             IdentityRole? identityRole = null;
-            if (rating != 0)
-            {
-                identityRole = await this._context.Roles.FirstOrDefaultAsync(r => r.Name.Trim().ToLower() == name.Trim().ToLower());
-            }
-
+           
+            identityRole = await this._context.Roles.FirstOrDefaultAsync(r => r.Name.Trim().ToLower() == name.Trim().ToLower());
+          
 
             return (identityRole != null ? true : false);
         }
