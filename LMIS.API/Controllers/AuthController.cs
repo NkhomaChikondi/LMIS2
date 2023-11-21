@@ -167,7 +167,7 @@ namespace LMIS.API.Controllers
                         //check for presence of parent email
 
 
-                        string PinBody = "An account has been created on LMIS. Your OTP is " + pin + " <br /> Enter the OTP to activate your account" + " <br /> You can activate your account by clicking <a href='https://cutt.ly/mentallab'> here</a>";
+                        string PinBody = "An account has been created on LMIS. Your OTP is " + pin + " <br /> Enter the OTP to activate your account" + " <br /> You can activate your account by clicking here</a>";
 
                         this._emailService.SendMail(applicationUser.Email, "Login Details", PinBody);
 

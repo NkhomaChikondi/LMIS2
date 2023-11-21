@@ -13,10 +13,10 @@ namespace LMIS.DataStore.Core.Services
     public class EmailService: IEmailService
     {
         public IConfiguration _configuration { get; }
-        public EmailService(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+            public EmailService(IConfiguration configuration)
+            {
+                _configuration = configuration;
+            }
         public string SendMail(string email, string subject, string HtmlMessage)
         {
 
