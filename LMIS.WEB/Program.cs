@@ -1,5 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

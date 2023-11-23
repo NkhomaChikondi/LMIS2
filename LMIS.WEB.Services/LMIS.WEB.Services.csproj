@@ -10,8 +10,4 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\LMIS.WEB\LMIS.WEB.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace LMIS.WEB.Services.IRepository
 {
-    public interface ILoginRepository : IApiRepository<LoginViewModel>
+    public interface ILoginRepository 
     {
-        Task<string> AuthenticateAsync(LoginViewModel loginViewModel);
+        Task<Dictionary<int, string>> AuthenticateAsync(LoginViewModel loginViewModel);
+       
     }
 }

@@ -21,6 +21,7 @@ namespace LMIS.WEB.Controllers
         [HttpPost]
         public async Task<IActionResult> LoginUser(LoginViewModel loginmodel)
         {
+            
             try
             {
                 using (var client = new HttpClient())
@@ -54,12 +55,12 @@ namespace LMIS.WEB.Controllers
                         if (loginmodel != null)
                         {
                             var claims = new List<Claim>()
-                        {
-                            new Claim(ClaimTypes.NameIdentifier, Convert.ToString(userId)),
-                            new Claim(ClaimTypes.Name, Convert.ToString(Username)),
-                            new Claim(ClaimTypes.Role, Convert.ToString(roleName)),
-                            new Claim("LMIS", "Library Management Information System")
-                        };
+                            {
+                                new Claim(ClaimTypes.NameIdentifier, Convert.ToString(userId)),
+                                new Claim(ClaimTypes.Name, Convert.ToString(Username)),
+                                new Claim(ClaimTypes.Role, Convert.ToString(roleName)),
+                                new Claim("LMIS", "Library Management Information System")
+                            };
                             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                             var principal = new ClaimsPrincipal(identity);
                             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal,
