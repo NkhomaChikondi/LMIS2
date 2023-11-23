@@ -91,20 +91,13 @@ namespace LMIS.API.Controllers
         [Route("Register")]
         public async Task<ActionResult> Register([FromBody] CreateUserDTO applicationViewModel)
         {
-
-
-
             // generating a random number
             int pin = this.userRepository.RandomNumber();
             applicationViewModel.Pin = pin;
 
-
             //check for model state validity
-
             if (ModelState.IsValid)
             {
-
-
                 //check if the role given exist in the system
 
                 var mappedRoleRecord = new IdentityRole() { Name = applicationViewModel.RoleName };
@@ -114,8 +107,7 @@ namespace LMIS.API.Controllers
                     ModelState.AddModelError(nameof(applicationViewModel.RoleName), $"This Role {applicationViewModel.RoleName} doees not exists in the system");
 
                     return BadRequest(ModelState);
-                }
-               
+                }              
 
                 var applicationUser = new ApplicationUser
                 {
@@ -140,13 +132,12 @@ namespace LMIS.API.Controllers
 
                     return BadRequest(ModelState);
                 }
-
-
+                // call the generate password method
+                var _password = userRepository.GeneratePassword(applicationUser);
+                // pass the password to the applicationViewModel
+                applicationViewModel.Password = _password;
                 //try adding a new user
-
                 var result = await this.userRepository.CreateUserAsync(applicationUser, applicationViewModel.Password);
-
-
 
                 if (result.Succeeded && applicationViewModel.RoleName != null)
                 {
@@ -155,27 +146,14 @@ namespace LMIS.API.Controllers
 
                     if (dbResult.Succeeded)
                     {
-
-
-
                         string PasswordBody = "Your account has been created on LMIS. Your password is " + applicationViewModel.Password;
-
-
-
                         this._emailService.SendMail(applicationUser.Email, "Login Details", PasswordBody);
 
                         //check for presence of parent email
 
-
                         string PinBody = "An account has been created on LMIS. Your OTP is " + pin + " <br /> Enter the OTP to activate your account" + " <br /> You can activate your account by clicking here</a>";
 
                         this._emailService.SendMail(applicationUser.Email, "Login Details", PinBody);
-
-
-
-
-
-
                     }
                     else
                     {

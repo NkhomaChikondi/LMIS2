@@ -26,7 +26,7 @@ namespace LMIS.DataStore.Repositories.Interfaces
         Task<IdentityResult> CreateUserAsync(ApplicationUser applicationUser, string password);
 
         Task<string> GenerateEmailConfirmationTokenAsync(ApplicationUser applicationUser);
-
+         string GeneratePassword(ApplicationUser applicationUser);
         Task<ApplicationUser?> FindByIdAsync(string id);
         Task<ApplicationUser?> FindByIdDeleteInclusiveAsync(string id);
 

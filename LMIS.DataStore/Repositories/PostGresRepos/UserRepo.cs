@@ -68,7 +68,39 @@ namespace LMIS.DataStore.Repositories.PostGresRepos
             return await _userManager.GenerateEmailConfirmationTokenAsync(applicationUser);
         }
 
-        public async Task<IEnumerable<ApplicationUser>> GetAllUsers()
+        public string GeneratePassword(ApplicationUser applicationUser)
+        {
+            // Get the first letters of the first and last names
+            char firstLetterFirstName = char.ToLower(applicationUser.FirstName[0]);
+            char firstLetterLastName = char.ToLower(applicationUser.LastName[0]);
+
+            // Generate random letters, numbers, and special characters
+            Random random = new Random();
+            const string alphanumericChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            const string numericChars = "0123456789";
+            const string specialChars = "!@#$%^&*()_+-=[]{};:,.<>?";
+
+            // Generate random characters
+            string randomChars = new string(Enumerable.Repeat(alphanumericChars, 2)
+                                        .Select(s => s[random.Next(s.Length)])
+                                        .ToArray());
+
+            // Pick a random digit
+            char randomDigit = numericChars[random.Next(numericChars.Length)];
+
+            // Pick a random uppercase letter
+            char randomUppercase = char.ToUpper(alphanumericChars[random.Next(alphanumericChars.Length)]);
+
+            // Pick a random special character
+            char randomSpecialChar = specialChars[random.Next(specialChars.Length)];
+
+            // Combine elements to create the password
+            string generatedPassword = $"{firstLetterFirstName}{firstLetterLastName}{randomChars}{randomDigit}{randomUppercase}{randomSpecialChar}";
+
+            return generatedPassword;
+        }
+
+            public async Task<IEnumerable<ApplicationUser>> GetAllUsers()
         {
             return await this._context.Users.ToListAsync();
         }
@@ -214,7 +246,8 @@ namespace LMIS.DataStore.Repositories.PostGresRepos
         {
             return await this._context.Users.Where(u =>  u.EmailConfirmed == true).CountAsync();
         }
-
+        
+    
         public Task<int> TotalCountFiltered(WebCursorParams @params)
         {
             throw new NotImplementedException();
