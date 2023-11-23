@@ -1,5 +1,7 @@
+using LMIS.WEB.Repository.IRepository;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddScoped<ILoginRepository, LoginRepository>();
+builder.Services.AddScoped<ILoginRepository, LMIS.WEB.Services.Repository.LoginRepository>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

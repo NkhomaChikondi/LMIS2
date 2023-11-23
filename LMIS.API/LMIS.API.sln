@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMIS.DataStore", "..\LMIS.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMIS.WEB", "..\LMIS.WEB\LMIS.WEB.csproj", "{58068228-27C1-4DB6-9B6D-5AD66D59D7AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMIS.WEB.Services", "..\LMIS.WEB.Services\LMIS.WEB.Services.csproj", "{F686C604-E4B4-4E75-AC00-AC10BFAA2961}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{58068228-27C1-4DB6-9B6D-5AD66D59D7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58068228-27C1-4DB6-9B6D-5AD66D59D7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58068228-27C1-4DB6-9B6D-5AD66D59D7AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F686C604-E4B4-4E75-AC00-AC10BFAA2961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F686C604-E4B4-4E75-AC00-AC10BFAA2961}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F686C604-E4B4-4E75-AC00-AC10BFAA2961}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F686C604-E4B4-4E75-AC00-AC10BFAA2961}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
