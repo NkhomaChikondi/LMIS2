@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LMIS.WEB.Services.IRepository
 {
-    public interface IApiRepository<T>
+    public interface IApiRepository<T> where T : class
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
