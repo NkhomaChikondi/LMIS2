@@ -1,13 +1,16 @@
 using LMIS.WEB.Repository.IRepository;
 
+using LMIS.WEB.Repository.Services;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddScoped<ILoginRepository, LMIS.WEB.Services.Repository.LoginRepository>();
+builder.Services.AddHttpClient<ILoginRepository, LoginRepository>();
+builder.Services.AddHttpContextAccessor();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP 
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

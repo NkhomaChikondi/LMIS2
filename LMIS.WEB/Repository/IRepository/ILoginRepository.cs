@@ -9,7 +9,7 @@ namespace LMIS.WEB.Repository.IRepository
 {
     public interface ILoginRepository
     {
-        Task<Dictionary<int, string>> AuthenticateAsync(LoginViewModel loginViewModel);
+        Task<string> AuthenticateAsync(LoginViewModel loginViewModel);
 
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LMIS.WEB.Services.Repository
+namespace LMIS.WEB.Repository.Services
 {
     public class ApiRepository<T> : IApiRepository<T> where T : class
     {

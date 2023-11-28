@@ -82,9 +82,7 @@ namespace LMIS.WEB.Controllers
                         else 
                         {
                             return Json(new { status = "success", area = "Back Office" }); ;
-                        }
-                       
-                        
+                        }                                               
                     }
                     else
                     {

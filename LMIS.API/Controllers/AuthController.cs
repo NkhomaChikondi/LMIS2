@@ -100,7 +100,10 @@ namespace LMIS.API.Controllers
             {
                 //check if the role given exist in the system
 
-                var mappedRoleRecord = new IdentityRole() { Name = applicationViewModel.RoleName };
+                var mappedRoleRecord = new IdentityRole()
+                {
+                    Name = applicationViewModel.RoleName
+                };
 
                 if (await this._roleRepository.Exists(applicationViewModel.RoleName) == false)
                 {
@@ -337,9 +340,6 @@ namespace LMIS.API.Controllers
 
                 return BadRequest(ModelState);
             }
-
-
-
         }
 
     }
